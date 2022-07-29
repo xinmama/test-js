@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<script>
+    // 1.for 重复执行某些代码，通常跟计数有关系
+    //2.for 语法结构
+    // for(初始化变量; 条件表达式; 操作表达式 ){
+    //         //循环体
+    // }
+
+        // for(var i = 1; i <= 100; i++){
+        //     console.log("hello");
+        // }
+
+            // for(var i = 1; i <= 100; i++){
+            //     console.log("这个人今年"+ i + "岁了");
+            // }
+
+    // 案例1： 求1-100之间所有整数的累加和
+    // 案例分析：
+    // ① 需要循环100次，我们需要一个计数器 i 
+    // ② 我们需要一个存储结果的变量 sum ，但是初始值一定是 0 
+    // ③ 核心算法：1 + 2 + 3 + 4 .... ，sum = sum + i;
+        // var sum = 0;
+        // for(var i = 1;i <= 100; i++){
+        //     sum = sum + i;
+        // }
+        // console.log(sum);
+
+
+    // 2.求1-100之间所有数的平均值
+         var sum = 0;
+         var avg = 0;
+         for (var i = 1; i <=100; i++){
+            sum = sum + i;
+         }
+         avg = sum / 100;
+         console.log(avg);
+
+    // 3.求1-100之间所有偶数和奇数的和
+         var jsum = 0;
+         var osum = 0;
+         for(var i =1; i<= 100;i++){
+            if(i % 2 == 0){
+                osum = osum + i;
+            }else{
+                jsum = jsum + i;
+            }
+         }
+         console.log("1-100之间所有偶数和为" + osum);
+         console.log("1-100之间所有奇数和为" + jsum);
+
+    // 4.求1-100之间所有能被3整除的数字的和
+         var sum = 0;
+         for( var i =  1; i<=100;i++){
+            if( i % 3 == 0 ){
+                sum = sum + i;
+            }
+         }
+         console.log("1-100之间所有能被3整除的数字的和为" + sum);
+
+    // 5. 要求用户输入班级人数，之后依次输入每个学生的成绩，最后打印出该班级总的成绩以及平均成绩
+    // ① 弹出输入框输入总的班级人数 ( num )
+    // ② 依次输入学生的成绩（保存起来 score），此时我们需要用到 for 循环，弹出的次数跟班级总人数有关系 条件表达式 i <= num
+    // ③ 进行业务处理: 计算成绩。 先求总成绩（sum），之后求平均成绩（average） ④ 弹出结果
+    // var people = prompt("请输入班级总人数：");
+    // var sumScore = 0; //总和
+    // var sum = 0;
+    // var avg = 0;
+    // for(var i = 1; i <= people; i++){
+    //     var sum = prompt("请输入第" + i +"个学生成绩:");
+    //     sumScore = sumScore + parseFloat(sum);
+    // }
+    // avg = sumScore / people ;
+    // alert("班级成绩总和：" + sumScore);
+    // alert("班级平均成绩：" + avg);
+
+    //6.一行打印五个星星
+    // var str = '';
+    // for(var i = 1; i <= 5; i++){
+    //     str = str + "❤";
+    //     console.log(str);
+    // }
+
+    // 双重循环
+    // for(var i = 1; i <= 3 ; i++){
+    //     console.log("这是外层循环第" + i + "次！");
+    //     for(var j = 1; j <= 2; j++){
+    //         console.log("这是内层循环第" + j + "次！");
+    //     }
+    // }
+
+    // 7.打印五行五列星星 （1. 内层循环负责一行打印五个星星2. 外层循环负责打印五行）
+    var str = "";
+    for(var i = 1; i <= 5; i++){
+        for(var j = 1; j <= 5; j++){
+            str = str + "❤";
+        }
+        //每次满 5个星星 就 加一次换行 \n
+        str = str + '\n';
+    }
+    console.log(str);
+
+    //8. 打印 n 行 n 列的星星
+    // var row  = prompt("请输入行数：");
+    // var cols = prompt("请输入列数：");
+    // var str = '';
+    // for(var i = 1; i <= row; i++){
+    //     for(var j = 1; j <= cols; j++){
+    //         str = str + "❤";
+    //     }
+    //     str = str + "\n";
+    // }
+    // console.log(str);
+
+    // 9. 打印倒三角形
+    // var row  = prompt("请输入行数：");
+    // var str = '';
+    // for(var i = 1; i <= row; i++){  // 外层循环控制行数
+    //     for(var j = i; j <= row; j++){  //内层循环 控制每行的个数
+    //         str = str + "❤";
+    //     }
+    //     str = str + "\n";
+    // }
+    // console.log(str);
+
+    // 10.打印正三角形
+    // var row  = prompt("请输入行数：");
+    // var str = '';
+    // for(var i = 1; i <= row; i++){  // 外层循环控制行数
+    //     for(var j = 1; j <= i; j++){  //内层循环 控制每行的个数
+    //         str = str + "❤";
+    //     }
+    //     str = str + "\n";
+    // }
+    // console.log(str);
+
+    // 11. 打印九九乘法表
+    // 分析：
+        // ① 一共有9行，但是每行的个数不一样，因此需要用到双重 for 循环
+        // ② 外层的 for 循环控制行数 i ，循环9次 ，可以打印 9 行 
+        // ③ 内层的 for 循环控制每行公式 j 
+        // ④ 核心算法：每一行 公式的个数正好和行数一致， j <= i;
+        // ⑤ 每行打印完毕，都需要重新换一行 
+        // ⑥ 把公式用 i 和 j 替换
+    // var  str = '';
+    // for(var i = 1; i <= 9; i++){
+    //     for(var j = 1;j <= i ;j++){
+    //         str += j + "×" + i + "＝" + i * j + "\t";
+    //     }
+    //     str = str + "\n";
+    // }
+    // console.log(str);
+    
+    
+</script>
+<body>
+    
+</body>
+</html>
